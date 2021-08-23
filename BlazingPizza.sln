@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
 		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizza.Client", "src\BlazingPizza.Client\BlazingPizza.Client.csproj", "{5A8C6B52-224A-45A9-B4F6-C8A366DF3271}"

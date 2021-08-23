@@ -1,5 +1,7 @@
 ﻿using BlazingPizza.Server;
 
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServices();
@@ -18,5 +20,15 @@ using (var scope = scopeFactory.CreateScope())
 }
 
 app.Configure();
+
+app.MapGet("/specials", async (PizzaStoreContext db) =>
+{
+    return (await db.Specials.ToListAsync()).OrderByDescending(s => s.BasePrice).ToList();
+});
+
+app.MapGet("/toppings", async (PizzaStoreContext db) =>
+{
+    return await db.Toppings.OrderBy(t => t.Name).ToListAsync();
+});
 
 await app.RunAsync();
