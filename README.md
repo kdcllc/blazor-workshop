@@ -7,6 +7,7 @@ This is `blazor-workshop` workshop.
 - [02. Customize a pizza](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/02-customize-a-pizza.md)
 - [03. Show order status](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/03-show-order-status.md)
 - [04. Refactor state management](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/04-refactor-state-management.md)
+- [05. Checkout with Validation](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/05-checkout-with-validation.md)
 
 ## Resources
 
