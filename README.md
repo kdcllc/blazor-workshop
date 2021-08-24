@@ -5,7 +5,7 @@ This is `blazor-workshop` workshop.
 - [00. Get started](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/00-get-started.md)
 - [01. Components and layout](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/01-components-and-layout.md)
 - [02. Customize a pizza](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/02-customize-a-pizza.md)
-
+- [03. Show order status](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/03-show-order-status.md)
 ## Resources
 
 ### Unit/ E2E testing
