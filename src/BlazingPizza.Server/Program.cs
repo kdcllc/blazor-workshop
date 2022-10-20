@@ -1,6 +1,9 @@
-﻿using BlazingPizza.Server;
+﻿using BlazingPizza;
+using BlazingPizza.Server;
 
 using Microsoft.EntityFrameworkCore;
+
+using System.ComponentModel.DataAnnotations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,16 +11,7 @@ builder.AddServices();
 
 await using var app = builder.Build();
 
-// Initialize the database
-var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
-using (var scope = scopeFactory.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<PizzaStoreContext>();
-    if (db.Database.EnsureCreated())
-    {
-        SeedData.Initialize(db);
-    }
-}
+app.EnsureDb();
 
 app.Configure();
 
@@ -29,6 +23,13 @@ app.MapGet("/specials", async (PizzaStoreContext db) =>
 app.MapGet("/toppings", async (PizzaStoreContext db) =>
 {
     return await db.Toppings.OrderBy(t => t.Name).ToListAsync();
+});
+
+app.MapPost("order", (Address address) =>
+{
+    return !MinimalValidation.TryValidate(address, out var errors)
+           ? Results.BadRequest(errors)
+           : Results.Ok(address);
 });
 
 await app.RunAsync();

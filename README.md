@@ -8,6 +8,7 @@ This is `blazor-workshop` workshop.
 - [03. Show order status](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/03-show-order-status.md)
 - [04. Refactor state management](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/04-refactor-state-management.md)
 - [05. Checkout with Validation](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/05-checkout-with-validation.md)
+- [05.1 Checkout with FluentValidation]()
 
 ## Resources
 

@@ -2,6 +2,21 @@
 {
     public static class WebApplicationExtensions
     {
+        public static WebApplication EnsureDb(this WebApplication app)
+        {
+            // Initialize the database
+            var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+            using (var scope = scopeFactory.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<PizzaStoreContext>();
+                if (db.Database.EnsureCreated())
+                {
+                    SeedData.Initialize(db);
+                }
+            }
+            return app;
+        }
+
         public static WebApplication Configure(this WebApplication app)
         {
             var env = app.Environment;
@@ -23,6 +38,9 @@
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api v1"));
 
             app.UseAuthentication();
             app.UseIdentityServer();
